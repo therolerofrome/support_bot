@@ -4,6 +4,7 @@ from create_bot import dp
 
 
 async def on_startup(_): #Запускаем при помощи полинга очень полезно вывести служебную информацию
+    #sqlite_db.sql_start()
     print('Бот вышел в онлайн')
 
 
