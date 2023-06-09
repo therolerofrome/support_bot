@@ -1,6 +1,9 @@
 from aiogram.utils import executor
 from create_bot import dp
 #from data_base import sqlite_db
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 
 async def on_startup(_): #Запускаем при помощи полинга очень полезно вывести служебную информацию
