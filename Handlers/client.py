@@ -75,7 +75,7 @@ async def cancel_handler(message: types.Message, state: FSMContext):
     if current_state is None:
         return
     await state.finish()
-    await message.reply('ОК')
+    await bot.send_message(message.from_user.id, 'Хорошо', reply_markup=kb_client)
 
 #Ловим первый ответ и пишем в словарь
 async def load_product(message: types.Message, state: FSMContext):
@@ -131,11 +131,11 @@ async def load_photo_none(message: types.Message, state: FSMContext):
 
 def register_handlers_client(dp : Dispatcher):
     dp.register_message_handler(commands_start, commands=['start', 'help'])
+    dp.register_message_handler(cancel_handler, Text(equals='отмена', ignore_case=True), state='*')
     dp.register_callback_query_handler(process_callback_allow_contact, Text(equals='allow_contact'))
     dp.register_message_handler(process_email_step, state=GetEmail.waiting_for_email)
-    dp.register_message_handler(create_new_ticket, Text(equals= 'Новый тикет', ignore_case=True), state=None)
-    dp.register_message_handler(my_ticket, Text(equals='Мои тикеты', ignore_case=True), state=None)
-    dp.register_message_handler(cancel_handler,Text(equals='отмена', ignore_case=True), state='*')
+    dp.register_message_handler(create_new_ticket, Text(equals= 'Новый тикет', ignore_case=True))
+    dp.register_message_handler(my_ticket, Text(equals='Мои тикеты', ignore_case=True))
     dp.register_message_handler(load_product, state=NewTicket.product)
     dp.register_message_handler(load_summary, state=NewTicket.summary)
     dp.register_message_handler(load_description, state=NewTicket.description)
@@ -143,4 +143,3 @@ def register_handlers_client(dp : Dispatcher):
     dp.register_message_handler(load_photo, content_types=['photo'], state=NewTicket.photo)
     dp.register_message_handler(load_photo_none, Text(equals='Нет', ignore_case=True), state=NewTicket.photo)
     dp.register_message_handler(incorrect_type, state=NewTicket.photo)
-
