@@ -3,7 +3,7 @@ from aiogram.dispatcher import FSMContext
 from aiogram.dispatcher.filters.state import StatesGroup, State
 #from data_base import sqlite_db
 
-from validators import is_valid_email
+from .validators import is_valid_email
 
 from create_bot import dp, bot
 
