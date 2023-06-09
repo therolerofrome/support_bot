@@ -28,6 +28,7 @@ class NewTicket(StatesGroup):
 class GetEmail(StatesGroup):
     waiting_for_email = State()
     #ID = State()
+
 async def commands_start(message: types.Message):
     try:
         await message.answer("Привет! Я бот. Для работы мне нужен доступ к вашему контакту. Разрешить?",
@@ -36,9 +37,9 @@ async def commands_start(message: types.Message):
         pass
 
 
-async def process_callback_allow_contact(callback_query: CallbackQuery):
-    await bot.answer_callback_query(callback_query.id)
-    await bot.send_message(callback_query.from_user.id, "Отлично! Теперь мне нужен ваш e-mail.", reply_markup=types.ReplyKeyboardRemove())
+async def process_callback_allow_contact(message: types.Message):
+    phone_number = message.contact.phone_number
+    await bot.send_message(message.from_user.id, "Отлично! Теперь мне нужен ваш e-mail.", reply_markup=types.ReplyKeyboardRemove())
     await GetEmail.waiting_for_email.set()
 
 
@@ -132,7 +133,7 @@ async def load_photo_none(message: types.Message, state: FSMContext):
 def register_handlers_client(dp : Dispatcher):
     dp.register_message_handler(commands_start, commands=['start', 'help'])
     dp.register_message_handler(cancel_handler, Text(equals='отмена', ignore_case=True), state='*')
-    dp.register_callback_query_handler(process_callback_allow_contact, Text(equals='allow_contact'))
+    dp.register_message_handler(process_callback_allow_contact, content_types=['contact'])
     dp.register_message_handler(process_email_step, state=GetEmail.waiting_for_email)
     dp.register_message_handler(create_new_ticket, Text(equals= 'Новый тикет', ignore_case=True))
     dp.register_message_handler(my_ticket, Text(equals='Мои тикеты', ignore_case=True))
@@ -143,3 +144,4 @@ def register_handlers_client(dp : Dispatcher):
     dp.register_message_handler(load_photo, content_types=['photo'], state=NewTicket.photo)
     dp.register_message_handler(load_photo_none, Text(equals='Нет', ignore_case=True), state=NewTicket.photo)
     dp.register_message_handler(incorrect_type, state=NewTicket.photo)
+
