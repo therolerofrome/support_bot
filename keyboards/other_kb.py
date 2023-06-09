@@ -1,7 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove, InlineKeyboardButton, \
     InlineKeyboardMarkup
 
-b1 =InlineKeyboardButton("Разрешить доступ", callback_data='allow_contact')
+b1 = KeyboardButton('Предоставить доступ', request_contact=True, callback_data='allow_contact')
 
 
 
@@ -9,12 +9,10 @@ b1 =InlineKeyboardButton("Разрешить доступ", callback_data='allow
 
 
 
-kb_other=InlineKeyboardMarkup()
-
+kb_other=ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 
 
 
 
 
 kb_other.add(b1)
-
