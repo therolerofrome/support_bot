@@ -24,7 +24,8 @@ url = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/tickets/'
 url1 = 'http://external-integration.dev.t1support-portal.dev.ts/get'
 url2 = 'https://httbin.org/post'
 url3 = 'http://keycloak.t1support-portal.dev.ts:8080/auth/realms/T1-Support-Portal/login-actions/authenticate?session_code=J_8Y5-3CPLhDmTCSv7KOHas66HFDUFJysLPgmhcKnoA&execution=2d1c4e91-4f13-4589-a025-9a9e4dd5e97e&client_id=frontapp&tab_id=D6suZWoL_jU'
-
+url4 = 'http://fe.dev.t1support-portal.dev.ts/tickets'
+            
 params = {
     "theme": "string",
     "numberFrom": 0,
@@ -79,5 +80,5 @@ headers2 = {
 
 
 
-response = requests.get(url3, headers=headers2, data=data3)
+response = requests.get(url4, headers=headers2, data=data4)
 print(response)
