@@ -1,4 +1,5 @@
 import requests
+from bs4 import BeautifulSoup
 
 data = {"custname": "bane",
         'custtel': 'parol',
@@ -95,5 +96,10 @@ headers2 = {
 
 response = requests.get(url4, headers=headers2, data=data5)
 response1 = requests.get(url5, headers=headers2)
+soup = BeautifulSoup(response.text, 'html.parser')
+ticket_list = soup.find_all('div', {'class': 'features-Tickets-components-TicketsTableContainer--tickets-table-container__sticky-wrapper'})
+
+            
 print(response)
 print(response1)
+print(ticket_list)
