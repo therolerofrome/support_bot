@@ -19,6 +19,12 @@ data4 =
       "NONE"
 }
 
+data5 = {
+    'username' : '',
+    "password" : '',
+}
+            
+            
 token = 'c170af50-1a63-46a0-8b5a-5da9156ceb52'
 url = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/tickets/'
 url1 = 'http://external-integration.dev.t1support-portal.dev.ts/get'
@@ -80,5 +86,5 @@ headers2 = {
 
 
 
-response = requests.get(url4, headers=headers2, data=data4)
+response = requests.get(url4, headers=headers2, data=data5)
 print(response)
