@@ -31,6 +31,7 @@ url1 = 'http://external-integration.dev.t1support-portal.dev.ts/get'
 url2 = 'https://httbin.org/post'
 url3 = 'http://keycloak.t1support-portal.dev.ts:8080/auth/realms/T1-Support-Portal/login-actions/authenticate?session_code=J_8Y5-3CPLhDmTCSv7KOHas66HFDUFJysLPgmhcKnoA&execution=2d1c4e91-4f13-4589-a025-9a9e4dd5e97e&client_id=frontapp&tab_id=D6suZWoL_jU'
 url4 = 'http://fe.dev.t1support-portal.dev.ts/tickets'
+url5 = 'http://fe.dev.t1support-portal.dev.ts/knowledge-base'
             
 params = {
     "theme": "string",
