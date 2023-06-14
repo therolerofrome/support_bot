@@ -13,6 +13,12 @@ data3 = {'session_code': 'cBzhS4_YewBZmusi1pCtEy9b8vz7Ru2crjRi_EByFQE',
          'client_id': "frontapp",
          'tab_id': 'ka2B7NKQtKo'}
 
+data4 = 
+{
+    "priorities": [
+      "NONE"
+}
+
 token = 'c170af50-1a63-46a0-8b5a-5da9156ceb52'
 url = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/tickets/'
 url1 = 'http://external-integration.dev.t1support-portal.dev.ts/get'
@@ -70,6 +76,8 @@ headers2 = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
     "X-Amzn-Trace-Id": "Root=1-6489ac62-1d21311b2bcd3b811ddbd22d"
 }
+
+
 
 response = requests.get(url3, headers=headers2, data=data3)
 print(response)
