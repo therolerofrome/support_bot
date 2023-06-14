@@ -24,6 +24,12 @@ data5 = {
     "password" : '',
 }
             
+data6 = {
+"theme" : " ",
+"description" : " "
+    ## Спарсить через сеть поле среды, когда мы сможем создавать пост
+}
+            
             
 token = 'c170af50-1a63-46a0-8b5a-5da9156ceb52'
 url = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/tickets/'
