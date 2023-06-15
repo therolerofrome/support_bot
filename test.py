@@ -143,6 +143,7 @@ headers2 = {
 
 session = requests.Session()
 sesion_token = session.post(url6, data=data5)
+print(sesion_token)
 if sesion_token.status_code != 200:
     print('Ошибка авторизации: {}'.format(response.content))
     exit()
