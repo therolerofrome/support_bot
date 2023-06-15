@@ -36,6 +36,10 @@ data7 = {
 "description" : "Тестовое описание ",
 'priority' : "NONE",
 'theme' : "Тест запроса 1",
+'environmentId' : "514a4b1e-edd7-4e73-b0aa-098055d7d8a6",
+'mentionedTickets': [],
+'systemId' : "1af428dd-7cdc-4e9d-96fe-1bbc7adcafe9",
+'typeId' : "ff8e4a2c-4096-499c-8e44-9e31f3d49f2e",
 }
             
 token = 'c170af50-1a63-46a0-8b5a-5da9156ceb52'
@@ -46,7 +50,7 @@ url3 = 'http://keycloak.t1support-portal.dev.ts:8080/auth/realms/T1-Support-Port
 url4 = 'http://fe.dev.t1support-portal.dev.ts/tickets'
 url5 = 'http://fe.dev.t1support-portal.dev.ts/tickets/create'
 url6 = 'http://keycloak.t1support-portal.dev.ts:8080/auth/realms/T1-Support-Portal/protocol/openid-connect/auth?client_id=frontapp&redirect_uri=http%3A%2F%2Ffe.dev.t1support-portal.dev.ts%2Ftickets&state=e6a42759-940f-4f30-87f7-dff8b35e7219&response_mode=fragment&response_type=code&scope=openid&nonce=f266b8c3-bd5c-4339-8ede-c5a2cebf0d49&code_challenge=1R-23dcj24GHMRWUF08bUWS-EC8V5xTiDlPc6jSGrkA&code_challenge_method=S256'
-            
+url7= 'http://ticket.dev.t1support-portal.dev.ts/api/ticket'            
         
 params = {
     "theme": "string",
@@ -117,26 +121,39 @@ headers2 = {
 #print(response1)
 #print(ticket_list)
 
+# session = requests.Session()
+# sesion_token = session.post(url6, data=data4)
+# response = session.get(url4, headers=headers2, data=data7, cookies=sesion_token, allow_redirects=True)
+# if response.status_code != 200:
+#     print('Ошибка авторизации: {}'.format(response.content))
+#     exit()
+# session_token = response.headers.get('Set-Cookie').split(';')[0]
+
+# headers3 = {
+#     'Content-Type': 'application/json',
+#     'Cookie': session_token
+# }
+
+# response = session.post(url5, headers=headers3, json=data6, allow_redirects=True)
+
+# if response.status_code != 200:
+#     print('Ошибка создания тикета: {}'.format(response.content))
+# else:
+#     print('Тикет создан успешно')
+
 session = requests.Session()
 sesion_token = session.post(url6, data=data4)
-response = session.get(url4, headers=headers2, data=data7, cookies=sesion_token, allow_redirects=True)
-if response.status_code != 200:
-    print('Ошибка авторизации: {}'.format(response.content))
-    exit()
-session_token = response.headers.get('Set-Cookie').split(';')[0]
-
+# session_token = response.headers.get('Set-Cookie').split(';')[0]
+#
 headers3 = {
     'Content-Type': 'application/json',
-    'Cookie': session_token
 }
-
-response = session.post(url5, headers=headers3, json=data6, allow_redirects=True)
-
+response = session.post(url7, headers=headers3, json=data7, allow_redirects=True)
+print(response)
 if response.status_code != 200:
     print('Ошибка создания тикета: {}'.format(response.content))
 else:
     print('Тикет создан успешно')
-
 
 
 
