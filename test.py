@@ -31,7 +31,12 @@ data6 = {
 'theme' : "Тест запроса 1",
 'typeId' : "ff8e4a2c-4096-499c-8e44-9e31f3d49f2e",
 }
-            
+ 
+data7 = {
+"description" : "Тестовое описание ",
+'priority' : "NONE",
+'theme' : "Тест запроса 1",
+}
             
 token = 'c170af50-1a63-46a0-8b5a-5da9156ceb52'
 url = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/tickets/'
@@ -39,7 +44,7 @@ url1 = 'http://external-integration.dev.t1support-portal.dev.ts/get'
 url2 = 'https://httbin.org/post'
 url3 = 'http://keycloak.t1support-portal.dev.ts:8080/auth/realms/T1-Support-Portal/login-actions/authenticate?session_code=J_8Y5-3CPLhDmTCSv7KOHas66HFDUFJysLPgmhcKnoA&execution=2d1c4e91-4f13-4589-a025-9a9e4dd5e97e&client_id=frontapp&tab_id=D6suZWoL_jU'
 url4 = 'http://fe.dev.t1support-portal.dev.ts/tickets'
-url5 = 'http://fe.dev.t1support-portal.dev.ts/knowledge-base'
+url5 = 'http://fe.dev.t1support-portal.dev.ts/tickets/create'
             
 params = {
     "theme": "string",
@@ -95,9 +100,9 @@ headers2 = {
 
 
 
-variable = requests.Session()            
-sesion_token = variable.get(url3, headers=headers2, data=data5)
-response = variable.get(url4, headers=headers2, data=data6, cookies=sesion_token)
+#variable = requests.Session()            
+#sesion_token = variable.get(url3, headers=headers2, data=data5)
+#response = variable.get(url4, headers=headers2, data=data6, cookies=sesion_token)
             
             
 #response = requests.get(url4, headers=headers2, data=data5)
@@ -105,7 +110,34 @@ response = variable.get(url4, headers=headers2, data=data6, cookies=sesion_token
 #soup = BeautifulSoup(response.text, 'html.parser')
 #ticket_list = soup.find_all('div', {'class': 'features-Tickets-components-TicketsTableContainer--tickets-table-container__sticky-wrapper'})
 
-print(session_token)
-print(response)
+#print(session_token)
+#print(response)
 #print(response1)
 #print(ticket_list)
+
+session = requests.Session()
+sesion_token = session.post(url3, data=data4)
+response = session.get(url4, headers=headers2, data=data7, cookies=sesion_token, allow_redirects=True)
+if response.status_code != 200:
+    print('Ошибка авторизации: {}'.format(response.content))
+    exit()
+session_token = response.headers.get('Set-Cookie').split(';')[0]
+
+headers3 = {
+    'Content-Type': 'application/json',
+    'Cookie': session_token
+}
+
+response = session.post(url5, headers=headers3, json=data6, allow_redirects=True)
+
+if response.status_code != 200:
+    print('Ошибка создания тикета: {}'.format(response.content))
+else:
+    print('Тикет создан успешно')
+
+
+
+
+
+
+
