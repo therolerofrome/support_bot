@@ -45,7 +45,9 @@ url2 = 'https://httbin.org/post'
 url3 = 'http://keycloak.t1support-portal.dev.ts:8080/auth/realms/T1-Support-Portal/login-actions/authenticate?session_code=J_8Y5-3CPLhDmTCSv7KOHas66HFDUFJysLPgmhcKnoA&execution=2d1c4e91-4f13-4589-a025-9a9e4dd5e97e&client_id=frontapp&tab_id=D6suZWoL_jU'
 url4 = 'http://fe.dev.t1support-portal.dev.ts/tickets'
 url5 = 'http://fe.dev.t1support-portal.dev.ts/tickets/create'
+url6 = 'http://keycloak.t1support-portal.dev.ts:8080/auth/realms/T1-Support-Portal/protocol/openid-connect/auth?client_id=frontapp&redirect_uri=http%3A%2F%2Ffe.dev.t1support-portal.dev.ts%2Ftickets&state=e6a42759-940f-4f30-87f7-dff8b35e7219&response_mode=fragment&response_type=code&scope=openid&nonce=f266b8c3-bd5c-4339-8ede-c5a2cebf0d49&code_challenge=1R-23dcj24GHMRWUF08bUWS-EC8V5xTiDlPc6jSGrkA&code_challenge_method=S256'
             
+        
 params = {
     "theme": "string",
     "numberFrom": 0,
