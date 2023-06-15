@@ -16,7 +16,7 @@ data3 = {'session_code': 'cBzhS4_YewBZmusi1pCtEy9b8vz7Ru2crjRi_EByFQE',
 
 data4 = 
 {
-    "priorities": [
+    "priorities": 
       "NONE"
 }
 
