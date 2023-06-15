@@ -143,11 +143,14 @@ headers2 = {
 
 session = requests.Session()
 sesion_token = session.post(url6, data=data5)
-# session_token = response.headers.get('Set-Cookie').split(';')[0]
-#
+if response.status_code != 200:
+    print('Ошибка авторизации: {}'.format(response.content))
+    exit()
+        
 headers3 = {
     'Content-Type': 'application/json',
 }
+
 response = session.post(url7, headers=headers3, json=data7, allow_redirects=True)
 print(response)
 if response.status_code != 200:
