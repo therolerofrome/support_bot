@@ -146,7 +146,7 @@ headers2 = {
 
 session = requests.Session()
 sesion_token = session.post(url6, data=data4, allow_redirects=True, headers=headers2)
-response = session.get(url4, headers=headers2, data=data4, cookies=sesion_token, allow_redirects=True)
+response = session.get(url4, headers=headers2, json=data4, cookies=sesion_token, allow_redirects=True)
 print(sesion_token)
 # if sesion_token.status_code != 200:
 #     print('Ошибка авторизации: {}'.format(response.content))
