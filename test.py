@@ -14,10 +14,7 @@ data3 = {'session_code': 'cBzhS4_YewBZmusi1pCtEy9b8vz7Ru2crjRi_EByFQE',
          'client_id': "frontapp",
          'tab_id': 'ka2B7NKQtKo'}
 
-data4 = 
-{
-    "priorities": 
-      "NONE"
+data4 ={
 }
 
 data5 = {
