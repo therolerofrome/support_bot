@@ -108,7 +108,7 @@ response = variable.get(url4, headers=headers2, data=data6, cookies=sesion_token
 #soup = BeautifulSoup(response.text, 'html.parser')
 #ticket_list = soup.find_all('div', {'class': 'features-Tickets-components-TicketsTableContainer--tickets-table-container__sticky-wrapper'})
 
-            
+print(session_token)
 print(response)
 #print(response1)
 #print(ticket_list)
