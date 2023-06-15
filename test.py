@@ -26,9 +26,13 @@ data5 = {
 }
             
 data6 = {
-"theme" : " ",
-"description" : " "
-    ## Спарсить через сеть поле среды, когда мы сможем создавать пост
+"description" : "Тестовое описание ",
+
+"environmentId" : "514a4b1e-edd7-4e73-b0aa-098055d7d8a6",
+'priority' : "NONE",
+"systemId" : "1af428dd-7cdc-4e9d-96fe-1bbc7adcafe9",
+'theme' : "Тест запроса 1",
+'typeId' : "ff8e4a2c-4096-499c-8e44-9e31f3d49f2e",
 }
             
             
@@ -94,12 +98,17 @@ headers2 = {
 
 
 
-response = requests.get(url4, headers=headers2, data=data5)
-response1 = requests.get(url5, headers=headers2)
-soup = BeautifulSoup(response.text, 'html.parser')
-ticket_list = soup.find_all('div', {'class': 'features-Tickets-components-TicketsTableContainer--tickets-table-container__sticky-wrapper'})
+variable = requests.Session()            
+sesion_token = variable.get(url3, headers=headers2, data=data5)
+response = variable.get(url4, headers=headers2, data=data6, cookies=sesion_token)
+            
+            
+#response = requests.get(url4, headers=headers2, data=data5)
+#response1 = requests.get(url5, headers=headers2)
+#soup = BeautifulSoup(response.text, 'html.parser')
+#ticket_list = soup.find_all('div', {'class': 'features-Tickets-components-TicketsTableContainer--tickets-table-container__sticky-wrapper'})
 
             
 print(response)
-print(response1)
-print(ticket_list)
+#print(response1)
+#print(ticket_list)
