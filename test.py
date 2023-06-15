@@ -145,9 +145,9 @@ headers2 = {
 session = requests.Session()
 sesion_token = session.post(url6, data=data4, allow_redirects=True, headers=headers2)
 print(sesion_token)
-if sesion_token.status_code != 200:
-    print('Ошибка авторизации: {}'.format(response.content))
-    exit()
+# if sesion_token.status_code != 200:
+#     print('Ошибка авторизации: {}'.format(response.content))
+#     exit()
         
 headers3 = {
     'Content-Type': 'application/json',
@@ -155,10 +155,10 @@ headers3 = {
 
 response = session.post(url7, headers=headers3, json=data7, allow_redirects=True, cookies=sesion_token)
 print(response)
-if response.status_code != 200:
-    print('Ошибка создания тикета: {}'.format(response.content))
-else:
-    print('Тикет создан успешно')
+# if response.status_code != 200:
+#     print('Ошибка создания тикета: {}'.format(response.content))
+# else:
+#     print('Тикет создан успешно')
 
 
 
