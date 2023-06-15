@@ -142,7 +142,7 @@ headers2 = {
 #     print('Тикет создан успешно')
 
 session = requests.Session()
-sesion_token = session.post(url6, data=data4)
+sesion_token = session.post(url6, data=data5)
 # session_token = response.headers.get('Set-Cookie').split(';')[0]
 #
 headers3 = {
