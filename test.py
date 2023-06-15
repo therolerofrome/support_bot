@@ -145,7 +145,7 @@ headers2 = {
 #     print('Тикет создан успешно')
 
 session = requests.Session()
-sesion_token = session.post(url6, data=data4, allow_redirects=True, headers=headers2)
+sesion_token = session.post(url6, json=data4, allow_redirects=True, headers=headers2)
 response = session.get(url4, headers=headers2, json=data4, cookies=sesion_token, allow_redirects=True)
 print(sesion_token)
 # if sesion_token.status_code != 200:
