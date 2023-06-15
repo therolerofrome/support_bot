@@ -122,6 +122,8 @@ headers2 = {
 #print(response1)
 #print(ticket_list)
 
+
+
 # session = requests.Session()
 # sesion_token = session.post(url6, data=data4)
 # response = session.get(url4, headers=headers2, data=data7, cookies=sesion_token, allow_redirects=True)
@@ -144,6 +146,7 @@ headers2 = {
 
 session = requests.Session()
 sesion_token = session.post(url6, data=data4, allow_redirects=True, headers=headers2)
+response = session.get(url4, headers=headers2, data=data4, cookies=sesion_token, allow_redirects=True)
 print(sesion_token)
 # if sesion_token.status_code != 200:
 #     print('Ошибка авторизации: {}'.format(response.content))
