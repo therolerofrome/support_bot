@@ -149,11 +149,11 @@ print(sesion_token)
 #     print('Ошибка авторизации: {}'.format(response.content))
 #     exit()
         
-headers3 = {
-    'Content-Type': 'application/json',
-}
+# headers3 = {
+#     'Content-Type': 'application/json',
+# }
 
-response = session.post(url7, headers=headers3, json=data7, allow_redirects=True, cookies=sesion_token)
+response = session.post(url7, headers=headers2, json=data7, allow_redirects=True, cookies=sesion_token)
 print(response)
 # if response.status_code != 200:
 #     print('Ошибка создания тикета: {}'.format(response.content))
