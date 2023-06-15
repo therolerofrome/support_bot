@@ -151,7 +151,7 @@ headers3 = {
     'Content-Type': 'application/json',
 }
 
-response = session.post(url7, headers=headers3, json=data7, allow_redirects=True)
+response = session.post(url7, headers=headers3, json=data7, allow_redirects=True, cookies=sesion_token)
 print(response)
 if response.status_code != 200:
     print('Ошибка создания тикета: {}'.format(response.content))
