@@ -177,7 +177,14 @@ response11 = session1.get(url5, params=params)
 print(response11.text)
 
 
+url6 = 'https://keycloak.supportal.t1-consulting.ru/auth/realms/T1-Support-Portal/protocol/openid-connect/token/api/v1/user'
 
+session2 = requests.Session()
+
+response12 = session1.get(url6)
+print(response12)
+print(response12.text)
+print(response12.json())
 
 
 
