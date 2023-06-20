@@ -194,9 +194,6 @@ print(response12.json())
 
 
 
-
-
-
 url7 = f'http://fe.dev.t1support-portal.dev.ts/tickets' # использовать обычную ссылку
 headers3 = {
     'Authorization': f'Bearer {token}'
@@ -217,4 +214,21 @@ response13 = session4.get(url8, headers=headers3)
 print(response13)
 print(response13.text)
 print(response13.json())
+
+
+
+url9 = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/ticket'
+
+headers4 = {
+    'Authorization': f'Bearer {token}'
+}
+
+session5 = requests.Session()
+
+
+response14 = session4.get(url8, headers=headers4)
+print(response14)
+print(response14.text)
+
+
 
