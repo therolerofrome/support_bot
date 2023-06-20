@@ -150,3 +150,44 @@ if response10.status_code != 200:
     print('Ошибка создания тикета: {}')
 else:
     print('13 ' + f'{response10}')
+
+
+
+
+
+
+
+url5 = 'http://keycloak.t1support-portal.dev.ts:8080/auth/realms/T1-Support-Portal/protocol/openid-connect/auth'
+params = {
+    'client_id': 'frontapp',
+    'redirect_uri': 'http://fe.dev.t1support-portal.dev.ts/tickets',
+    'state': '9e94fd6c-e4ac-4dc4-a32d-b02e7ade862d',
+    'response_mode': 'fragment',
+    'response_type': 'code',
+    'scope': 'openid',
+    'nonce': 'cca2e24c-29db-49b9-a470-e06057c9d53d',
+    'code_challenge': 'AMhz9r4WqSA_QCECp1UIXGwsjeIe87v2yHNg8yVeU1M',
+    'code_challenge_method': 'S256'
+}
+
+session1 = requests.Session()
+
+response11 = session1.get(url5, params=params)
+
+print(response11.text)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
