@@ -197,4 +197,24 @@ print(response12.json())
 
 
 
+url7 = f'http://fe.dev.t1support-portal.dev.ts/tickets' # использовать обычную ссылку
+headers3 = {
+    'Authorization': f'Bearer {token}'
+}
+
+session3 = requests.Session()
+
+response12 = session3.get(url7, headers=headers3)
+print(response12)
+print(response12.text)
+print(response12.json())
+
+url8 = 'http://keycloak.t1support-portal.dev.ts:8080/auth/realms/T1-Support-Portal/protocol/openid-connect/auth'
+
+session4 = requests.Session()
+
+response13 = session4.get(url8, headers=headers3)
+print(response13)
+print(response13.text)
+print(response13.json())
 
