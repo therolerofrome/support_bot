@@ -232,3 +232,20 @@ print(response14.text)
 
 
 
+
+
+
+
+
+url10 = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/ticket'
+
+headers5 = {
+    'Authorization': f'Bearer {token}'
+}
+
+session6 = requests.Session()
+
+
+response15 = session6.get(url10, params=headers4)
+print(response15)
+print(response15.text)
