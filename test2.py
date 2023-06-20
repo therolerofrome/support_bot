@@ -226,7 +226,7 @@ headers4 = {
 session5 = requests.Session()
 
 
-response14 = session4.get(url8, headers=headers4)
+response14 = session4.get(url9, headers=headers4)
 print(response14)
 print(response14.text)
 
