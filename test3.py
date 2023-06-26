@@ -1,3 +1,5 @@
+import json
+
 import requests
 
 token = ""
@@ -9,7 +11,8 @@ url = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/ticket'
 
 session = requests.Session()
 session.headers.update({
-    'Authorization': f'Bearer {token}'
+    'Authorization': f'Bearer {token}',
+
 })
 
 response = session.get(url)
@@ -26,6 +29,7 @@ print(response2)
 print(response2.json)
 
 
+
 # Создаем тикет
 url3 = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/ticket'
 
@@ -39,15 +43,13 @@ data ={
 }
 
 
-session = requests.Session()
-session.headers.update({
-    'Authorization': f'Bearer {token}',
+
+response3 = session.post(url3, data=json.dump(data), headers={
     'Content-type': 'application/json',
-    'Accept': 'application/json'
+    'Accept': 'application/json',
 })
 
-response = session.post(url, data=data)
-print(response)
-print(response.json)
+print(response3)
+print(response3.json)
 
 
