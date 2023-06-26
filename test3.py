@@ -26,6 +26,7 @@ print(response2)
 print(response2.json)
 
 
+# Создаем тикет
 url3 = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/ticket'
 
 data ={
