@@ -41,7 +41,9 @@ data ={
 
 session = requests.Session()
 session.headers.update({
-    'Authorization': f'Bearer {token}'
+    'Authorization': f'Bearer {token}',
+    'Content-type': 'application/json',
+    'Accept': 'application/json'
 })
 
 response = session.post(url, data=data)
