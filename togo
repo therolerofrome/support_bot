@@ -1,0 +1,54 @@
+import requests
+import json
+
+token = "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzM19IaDJwa2Nsc28zaHRMaVlUVDk0NzF5b3VPZHVucGlZTHdzMEdWNkI0In0.eyJleHAiOjE2ODc5NjA2NDQsImlhdCI6MTY4Nzk1NDY0NCwiYXV0aF90aW1lIjoxNjg3OTU0NjQ0LCJqdGkiOiIxODMwZGFlZi05OWQ3LTRjY2QtOTgyMi05YzI1Zjg0ZmU5NjYiLCJpc3MiOiJodHRwOi8va2V5Y2xvYWsudDFzdXBwb3J0LXBvcnRhbC5kZXYudHM6ODA4MC9hdXRoL3JlYWxtcy9UMS1TdXBwb3J0LVBvcnRhbCIsImF1ZCI6WyJtaW5pbyIsIndlYmFwcCIsImZyb250YXBwIl0sInN1YiI6IjdkZjE3ZGM4LWU5MTgtNGNiNS05ZTI0LTgxMDgxMzg4MjdmMSIsInR5cCI6IkJlYXJlciIsImF6cCI6ImZyb250YXBwIiwibm9uY2UiOiIyODJiNmRmNC03MGM2LTQxNTktOGU3OS01MGVkNjBiNzdiOWMiLCJzZXNzaW9uX3N0YXRlIjoiZjE0Y2ZjYTYtZWZjYi00YTY1LThjNDYtODNhM2M0NjBkY2I3IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyIqIl0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIiwiVVNFUiIsImRlZmF1bHQtcm9sZXMtdDEtc3VwcG9ydC1wb3J0YWwiXX0sInNjb3BlIjoib3BlbmlkIHBvcnRhbC1taW5pby1zY29wZSBlbWFpbCBwcm9maWxlIHBvcnRhbC1iYWNrLXNjb3BlIHBvcnRhbC1mcm9udC1zY29wZSIsInNpZCI6ImYxNGNmY2E2LWVmY2ItNGE2NS04YzQ2LTgzYTNjNDYwZGNiNyIsIm9yZ2FuaXphdGlvbl90aXRsZSI6ItCU0LXQvNC-0KHRhNC10YDQsCAtINCa0LvQuNC10L3RgiIsImJ1c2luZXNzX3VzZXJfaWQiOiIwYTE5OWQxOS0wYzhiLTQwMTAtODM4OC00MTdjYTQ0NzI5YjYiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsIm5hbWUiOiLQmNCy0LDQvSDQmNCy0LDQvdC-0LIiLCJwaG9uZV9udW1iZXIiOiIrNyAoODAwKSA1NTUtMzUtMzUiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJpdmFub3YiLCJtaWRkbGVfbmFtZSI6ItCY0LLQsNC90L7QstC40YciLCJnaXZlbl9uYW1lIjoi0JjQstCw0L0iLCJmYW1pbHlfbmFtZSI6ItCY0LLQsNC90L7QsiIsImVtYWlsIjoiaXZhbm92QG1haWwucnUifQ.Swy_4v3g_cPMMr_DEJsrLFlrr5798xkD_vkDwLXi-KSsoL7ChR2Dtpsujr0SIyjmwj3-w99_Ag3DNOSAJ835EXGHJi0hPidNv_02JlP8wZWuA3Cp6VItYBKZ4wLzcsW1wDgReDcxavLVyH7SpQO3m21PV6sthWAh_A97qEiwdywHOqz_ABsTFf09rtnJHzBL-NMEfhlxOQfPw_nr-fRQK6XfsxISMRBlku0g2aIu_EfWaQo1p3EkFx_UTCnKYj3oopzGSt1LzXnbvqsNRAdgGSr8Fn0MmbxpOucTQq1ZtyJQWfPisSdgD967G3WpNuIWJUHXOmELN7qM9VG9yWoGkw"
+# Получаем тикеты
+url = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/ticket'
+
+
+
+session = requests.Session()
+session.headers.update({
+    'Authorization': f'Bearer {token}',
+
+})
+
+response = session.get(url)
+print(response)
+print(response.json)
+
+
+#получаем инфу о пользователе
+url2 = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/user'
+
+response2 = session.get(url2)
+
+print(response2)
+print(response2.json)
+
+
+
+# Создаем тикет
+url3 = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/ticket'
+
+data ={
+
+  "typeId": "ff8e4a2c-4096-499c-8e44-9e31f3d49f2e",
+  "theme": "vseeshetestiryem",
+  "description": "apitest",
+  "environmentId": "514a4b1e-edd7-4e73-b0aa-098055d7d8a6",
+  "systemId": "1af428dd-7cdc-4e9d-96fe-1bbc7adcafe9",
+  "ticketPriority": "NONE"
+
+}
+
+
+
+response3 = session.post(url3, data=json.dumps(data), headers={
+    'Content-type': 'application/json',
+    'Accept': 'application/json',
+})
+
+print(response3)
+print(response3.json)
+
