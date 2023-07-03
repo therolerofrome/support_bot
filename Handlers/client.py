@@ -207,7 +207,7 @@ def register_handlers_client(dp : Dispatcher):
     dp.register_message_handler(my_ticket, Text(equals='Мои тикеты', ignore_case=True))
     dp.register_message_handler(load_type_id, state=NewTicket.type_id)
     dp.register_message_handler(load_environment_id, state=NewTicket.environment_id)
-    dp.register_message_handler(load_environment_id, state=NewTicket.system_id)
+    dp.register_message_handler(load_system_id, state=NewTicket.system_id)
     dp.register_message_handler(load_theme, state=NewTicket.theme)
     dp.register_message_handler(load_description, state=NewTicket.description)
     dp.register_message_handler(load_ticket_priority, state=NewTicket.ticket_priority)
