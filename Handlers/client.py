@@ -12,7 +12,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ParseMode,
 from aiogram.dispatcher.filters import Text
 
 from keyboards.client_kb import kb_client, kb_client_ticket, kb_client_yn, kb_client_environment, kb_client_system, \
-    kb_client_cancel
+    kb_client_cancel, kb_client_priority
 from keyboards.other_kb import kb_other
 
 
@@ -126,7 +126,7 @@ async def load_description(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['description'] = message.text
     await NewTicket.next()
-    return await message.reply('Выберите приоритет', reply_markup=)
+    return await message.reply('Выберите приоритет', reply_markup=kb_client_priority)
 
 async def load_ticket_priority(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
