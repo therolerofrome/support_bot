@@ -147,28 +147,28 @@ async def load_ticket_priority(message: types.Message, state: FSMContext):
     """Пост реквест"""
     try:
         url3 = 'http://external-integration.dev.t1support-portal.dev.ts/api/v1/ticket'
-    
+
         data_request = {
-    
+
             "typeId": data['type_id'],
             "theme": data['theme'],
             "description": data['description'],
             "environmentId": data['environment_id'],
             "systemId": data['system_id'],
             "ticketPriority": data['ticket_priority'],
-    
+
         }
-    
+
         session = requests.Session()
         response3 = session.post(url3, data=json.dumps(data_request), headers={
             'Content-type': 'application/json',
             'Accept': 'application/json',
         })
-    
+
         await state.finish()
-    
+
     except:
-        bot.send_message(message.from_user.id, 'Произошла ошибка', reply_markup=kb_client)
+        await bot.send_message(message.from_user.id, 'Произошла ошибка', reply_markup=kb_client)
         await state.finish()
 
 '''Сегмент с загрузкой фото'''
