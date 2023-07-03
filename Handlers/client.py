@@ -159,7 +159,11 @@ async def load_ticket_priority(message: types.Message, state: FSMContext):
 
         }
 
+
         session = requests.Session()
+        session.headers.update({
+        'Authorization': f'Bearer {token}',
+        })
         response3 = session.post(url3, data=json.dumps(data_request), headers={
             'Content-type': 'application/json',
             'Accept': 'application/json',
