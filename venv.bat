@@ -1,5 +1,6 @@
 python -m venv venv
 
-venv\Scripts\activate
+call venv\Scripts\activate
 
+pip install aiogram
 pip install requests
