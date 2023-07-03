@@ -2,6 +2,6 @@
 
 call venv/Scripts/activate
 
-python test3.py
+python main.py
 
 pause
