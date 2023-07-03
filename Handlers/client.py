@@ -141,7 +141,7 @@ async def load_ticket_priority(message: types.Message, state: FSMContext):
         elif message.text == 'Критический':
             data['ticket_priority'] = '75ddb269-5aae-40c5-83f8-eff3eeff935d'
     # await NewTicket.next()
-    bot.send_message(message.from_user.id, 'Тикет успешно создан!', reply_markup=kb_client)
+    
     # await bot.send_message(message.from_user.id,'Вам нужно загрузить фото?', reply_markup=kb_client_yn)
 
     """Пост реквест"""
@@ -164,7 +164,7 @@ async def load_ticket_priority(message: types.Message, state: FSMContext):
             'Content-type': 'application/json',
             'Accept': 'application/json',
         })
-
+        await bot.send_message(message.from_user.id, 'Тикет успешно создан!', reply_markup=kb_client)
         await state.finish()
 
     except:
