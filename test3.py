@@ -44,7 +44,7 @@ data ={
 
 
 
-response3 = session.post(url3, data=json.dump(data), headers={
+response3 = session.post(url3, data=json.dumps(data), headers={
     'Content-type': 'application/json',
     'Accept': 'application/json',
 })
